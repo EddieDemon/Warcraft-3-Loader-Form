@@ -9,13 +9,6 @@ The original release of W3LF was created for Eurobattle.net (http://www.eurobatt
 For developers: It you'd like to create your own forms application then use the API:
 
 	[DllImport("w3l.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-	static extern Int32 DoInject(
-	[MarshalAs(UnmanagedType.LPStr)] string CommandLine,
-	[MarshalAs(UnmanagedType.LPStr)] string ExePath,
-	[Out][MarshalAs(UnmanagedType.LPStr)] out string ErrorMsg
-	);
-	//Simple:
-	[DllImport("w3l.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
 	static extern Int32 DoInject(string CommandLine, string, ExePath, out string ErrorMsg);
 
 Since version 2.7.12.0 W3LF supports commandline arguments. Here's a list of commands and what they do,

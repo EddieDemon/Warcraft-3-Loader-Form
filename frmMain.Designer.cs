@@ -64,6 +64,7 @@
              this.wbtnWarGP = new Intcon.W3LF.WarButton();
              this.wbtnWar3 = new Intcon.W3LF.WarButton();
              this.tpOptions = new System.Windows.Forms.TabPage();
+             this.lblSaveNote = new System.Windows.Forms.Label();
              this.gbGProxy = new System.Windows.Forms.GroupBox();
              this.lblNoGP = new System.Windows.Forms.Label();
              this.cbConsole = new Intcon.W3LF.CheckBoxC();
@@ -94,7 +95,6 @@
              this.llblPvPGN = new System.Windows.Forms.LinkLabel();
              this.txtLicence = new System.Windows.Forms.TextBox();
              this.lblAbout = new System.Windows.Forms.Label();
-             this.lblSaveNote = new System.Windows.Forms.Label();
              this.gbStartup.SuspendLayout();
              ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
              this.tcMain.SuspendLayout();
@@ -289,6 +289,17 @@
              this.tpOptions.Size = new System.Drawing.Size(732, 542);
              this.tpOptions.TabIndex = 0;
              this.tpOptions.Text = "Startup/GProxy options";
+             // 
+             // lblSaveNote
+             // 
+             this.lblSaveNote.AutoSize = true;
+             this.lblSaveNote.BackColor = System.Drawing.Color.Transparent;
+             this.lblSaveNote.ForeColor = System.Drawing.Color.White;
+             this.lblSaveNote.Location = new System.Drawing.Point(199, 310);
+             this.lblSaveNote.Name = "lblSaveNote";
+             this.lblSaveNote.Size = new System.Drawing.Size(320, 13);
+             this.lblSaveNote.TabIndex = 13;
+             this.lblSaveNote.Text = "Settings are saved automatically after you switched to another tab.";
              // 
              // gbGProxy
              // 
@@ -642,16 +653,6 @@
              this.lblAbout.Size = new System.Drawing.Size(223, 91);
              this.lblAbout.TabIndex = 0;
              this.lblAbout.Text = resources.GetString("lblAbout.Text");
-             // 
-             // lblSaveNote
-             // 
-             this.lblSaveNote.AutoSize = true;
-             this.lblSaveNote.ForeColor = System.Drawing.Color.White;
-             this.lblSaveNote.Location = new System.Drawing.Point(199, 310);
-             this.lblSaveNote.Name = "lblSaveNote";
-             this.lblSaveNote.Size = new System.Drawing.Size(320, 13);
-             this.lblSaveNote.TabIndex = 13;
-             this.lblSaveNote.Text = "Settings are saved automatically after you switched to another tab.";
              // 
              // frmMain
              // 

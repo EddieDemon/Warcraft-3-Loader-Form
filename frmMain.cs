@@ -185,6 +185,7 @@ namespace Intcon.W3LF
                 //psi.CreateNoWindow = true;
                 //psi.UseShellExecute = false;
                 Process.Start(psi);
+                System.Threading.Thread.Sleep(150);
             }
             Loader.RunW3(true);
         }
