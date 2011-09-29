@@ -1,5 +1,5 @@
 /*
- *    Warcraft 3 Loader Form - A C# forms application modification upon the original W3L by Acid and Keres
+ *  Warcraft 3 Loader Form - A C# forms application modification upon the original W3L by Acid and Keres
  *	Copyright (C) 2011  MusicDemon
  *
  *	This program is free software: you can redistribute it and/or modify
@@ -49,17 +49,13 @@ namespace Intcon.W3LF
             Logging.Log(Logging.LogLevels.Information, "[BOOT] Ext GPCF: " + Settings.GProxy_Cfg_Exists);
             Logging.Log(Logging.LogLevels.Information, "[BOOT] Ext GPEX: " + Settings.GProxy_Exe_Exists);
             Logging.Log(Logging.LogLevels.Information, "[BOOT] Ext GPLG: " + Settings.GProxy_Log_Exists);
-            Logging.Log(Logging.LogLevels.Information, "[BOOT] Ext GPLG: " + Settings.GProxy_Log_Exists);
             // Command line parsing.
-            if (Environment.CommandLine.ToLower().Contains("-launch"))
+
+            if (Environment.CommandLine.ToLower().Contains("-launchgp"))
+            { LaunchW3GP(); return; }
+            else if (Environment.CommandLine.ToLower().Contains("-launch"))
             { Loader.RunW3(false); return; }
-            else if (Environment.CommandLine.ToLower().Contains("-launchgp"))
-            {
-                if (Settings.GProxy_Exe_Exists)
-                    System.Diagnostics.Process.Start(Settings.W3Path + "/gproxy.exe");
-                Loader.RunW3(true);
-                return;
-            }
+
             // End command line parsing.
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
             Application.EnableVisualStyles();
@@ -92,6 +88,25 @@ namespace Intcon.W3LF
             {
                 MessageBox.Show("Unable to write exception dump. Please make a screen shot and contact the Eurobattle (This program) administrator.\r\n\r\n" + e.Exception.StackTrace);
             }
+        }
+        /// <summary>
+        /// Starts GProxy as well as Warcraft III.
+        /// </summary>
+        public static void LaunchW3GP()
+        {
+            if (Settings.GProxy_Exe_Exists)
+            {
+                System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo(Settings.W3Path + "gproxy.exe");
+                // UNDONE: Unlike war3.exe the first argument of GProxy.exe is the location of the configuration file.
+                //, '"' + Settings.W3Path + "gproxy.cfg\"");
+                psi.WorkingDirectory = Settings.W3Path;
+                // HACK: Use this to not create a GProxy window.
+                //psi.CreateNoWindow = true;
+                //psi.UseShellExecute = false;
+                System.Diagnostics.Process.Start(psi);
+                System.Threading.Thread.Sleep(150);
+            }
+            Loader.RunW3(true);
         }
     }
 }

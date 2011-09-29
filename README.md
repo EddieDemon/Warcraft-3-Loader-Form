@@ -11,6 +11,10 @@ For developers: It you'd like to create your own forms application then use the 
 	[DllImport("w3l.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
 	static extern Int32 DoInject(string CommandLine, string, ExePath, out string ErrorMsg);
 
+Since version 2.25.17.2: For developers! loader.cs now has a class that helps you ease the way of gateway "forcing" set the values in the static class and they will be used at start-up!
+
+Since version 2.17.14.1 W3LF will check the registry (Gateways) before booting war3.exe.
+
 Since version 2.7.12.0 W3LF supports commandline arguments. Here's a list of commands and what they do,
 
 > -launch		- Directly launches Warcraft III after loading the set command line arguments. (Warcraft III command lines)

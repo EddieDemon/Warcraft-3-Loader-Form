@@ -177,17 +177,7 @@ namespace Intcon.W3LF
         /// <param name="e">An System.EventArgs that contains no event data.</param>
         private void wbtnWarGP_Click(object sender, EventArgs e)
         {
-            if (Settings.GProxy_Exe_Exists)
-            {
-                ProcessStartInfo psi = new ProcessStartInfo(Settings.W3Path + "gproxy.exe", '"' + Settings.W3Path + "gproxy.exe\"");
-                psi.WorkingDirectory = Settings.W3Path;
-                // HACK: Use this to not create a GProxy window.
-                //psi.CreateNoWindow = true;
-                //psi.UseShellExecute = false;
-                Process.Start(psi);
-                System.Threading.Thread.Sleep(150);
-            }
-            Loader.RunW3(true);
+            Program.LaunchW3GP();
         }
         #endregion
 

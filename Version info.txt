@@ -40,4 +40,8 @@
 2.21.16.2	- Created a logging class to print			- 28-Sep-'11
 				debug info.
 2.22.16.2	- Options will reload when the options-tab	- "
-				is selected. 
+				is selected.
+2.23.17.2	- Fix a startup issue (launch arguments)	- 29-Sep-'11
+2.24.17.2	- Changed the startup arguments of GProxy	- "
+2.25.17.2	- Added a class so developers can force		- "
+				their gateway easier. (loader.cs)
