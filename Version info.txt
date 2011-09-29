@@ -40,4 +40,4 @@
 2.21.16.2	- Created a logging class to print			- 28-Sep-'11
 				debug info.
 2.22.16.2	- Options will reload when the options-tab	- "
-				is selected.
+				is selected. 
