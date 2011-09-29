@@ -1,4 +1,4 @@
-﻿W3LF - Warcraft 3 Loader Form
+﻿#W3LF - Warcraft 3 Loader Form
 
 A modification for the original W3L by Rupan, Keres & Phatdeeva. This version makes it possible to start Warcraft 3 with paramaters with ease.
 w3l.c.txt is the actual w3l.c file used for the loading.
@@ -21,6 +21,12 @@ Simple:
 [DllImport("w3l.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
 static extern Int32 DoInject(string CommandLine, string, ExePath, out string ErrorMsg);
 [/code]
+
+Since version 2.7.12.0 W3LF supports commandline arguments. Here's a list of commands and what they do.
+-launch		- Directly launches Warcraft III after loading the set command line arguments. (Warcraft III command lines)
+-launchgp	- Directly launches Warcraft III and GProxy after loading the set command line arguments. (Warcraft III command lines)
+-noupdate	- Does not show the updates-tab.
+-nonews		- Does not show the webbrowser at startup.
 
 For version information please see: Version info.txt
 

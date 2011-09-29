@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{845A7319-798D-4AE8-A400-BE4DB8F0DE31}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Intcon.W3LF</RootNamespace>
+    <AssemblyName>Eurobattle</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Eurobattle.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ico.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckBoxC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckBoxC.Designer.cs">
+      <DependentUpon>CheckBoxC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loader.cs" />
+    <Compile Include="Logging.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="UpdateManager.cs" />
+    <Compile Include="WarButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WarButton.Designer.cs">
+      <DependentUpon>WarButton.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CheckBoxC.resx">
+      <DependentUpon>CheckBoxC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="WarButton.resx">
+      <DependentUpon>WarButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="Resources\ico.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cbChck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cbChckDis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cbDis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cbPress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnBg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_w3_normal.png" />
+    <None Include="Resources\button_w3_disabled.png" />
+    <None Include="Resources\button_w3_hover.png" />
+    <None Include="Resources\button_w3_pressed.png" />
+    <None Include="Resources\button_w3-gproxy_disabled.png" />
+    <None Include="Resources\button_w3-gproxy_hover.png" />
+    <None Include="Resources\button_w3-gproxy_normal.png" />
+    <None Include="Resources\button_w3-gproxy_pressed.png" />
+    <Content Include="update.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Version info.txt" />
+    <Content Include="w3l.cpp.txt" />
+    <Content Include="w3l.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="w3lh.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
