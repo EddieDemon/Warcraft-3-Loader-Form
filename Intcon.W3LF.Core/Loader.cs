@@ -183,7 +183,7 @@ namespace Intcon.W3LF
                         else
                             if (Entries[i + 2] != ServerData.GP_Name) Entries[i + 2] = ServerData.GP_Name;
 #if XPAM
-                        if (RunGP) { server = i / 3; HadXPAM = true; }
+                        if (RunGP) { server = i / 3; HadServer = true; }
 #endif
                     }
                 }
