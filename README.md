@@ -1,4 +1,4 @@
-﻿W3LF - Warcraft 3 Loader Form
+﻿W3LF - Warcraft 3 Loader Form 
 =============================
 
 A modification for the original W3L by Rupan, Keres & Phatdeeva. This version makes it possible to start Warcraft 3 with paramaters with ease.
