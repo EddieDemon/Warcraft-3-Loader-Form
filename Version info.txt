@@ -45,3 +45,6 @@
 2.24.17.2	- Changed the startup arguments of GProxy	- "
 2.25.17.2	- Added a class so developers can force		- "
 				their gateway easier. (loader.cs)
+2.26.18.2	- .gitignore allows .manifest, again		- 2-Nov-'11
+				fixed a small Xml comment typo
+				Credits: therise - PvPGN forums

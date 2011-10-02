@@ -16,8 +16,6 @@ gproxy/
 *.exe
 *.dll
 
-*.manifest
-
 # Packages
 *.7z
 *.dmg

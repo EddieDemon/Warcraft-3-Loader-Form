@@ -27,6 +27,11 @@ using System.Windows.Forms;
 
 namespace Intcon.W3LF
 {
+    /*
+     * TODO: Don't allow start-up on wrong checksum
+	 * TODO: Change update system to XML
+     */
+
     /// <summary>
     /// The update manager of the application.
     /// </summary>
@@ -44,7 +49,7 @@ namespace Intcon.W3LF
         /// <summary>
         /// Gets a dictionary with application Ids and update values.
         /// </summary>
-        /// <returns>A full <see cref="SystemCollections.Generic.Dictionary<TKey, TValue>"/> class.</returns>
+        /// <returns>A full <see cref="SystemCollections.Generic.Dictionary&gt;TKey, TValue>"/> class.</returns>
         public static Dictionary<int, string> RefreshUpdates()
         {
             if (!File.Exists(Settings.W3Path + "/war3.exe"))

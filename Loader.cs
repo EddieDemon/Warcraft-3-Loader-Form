@@ -105,7 +105,6 @@ namespace Intcon.W3LF
                 // Check if war3.exe and w3lh.dll exist.
                 try
                 {
-
                     if (!File.Exists(Settings.W3Path + "\\war3.exe"))
                     {
                         MessageBox.Show("The given directory does not contain war3.exe, please make sure your registry contains the right information.\r\n\r\nPath: " + Settings.W3Path);
