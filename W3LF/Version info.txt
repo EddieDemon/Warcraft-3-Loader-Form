@@ -48,3 +48,5 @@
 2.26.18.2	- .gitignore allows .manifest, again		- 2-Nov-'11
 				fixed a small Xml comment typo
 				Credits: therise - PvPGN forums
+2.27.18.2	- Created a library to handle the settings	- "
+				and loading.

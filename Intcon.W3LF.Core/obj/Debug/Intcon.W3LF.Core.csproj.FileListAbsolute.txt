@@ -1,0 +1,5 @@
+C:\Users\MusicDemon\Documents\Visual Studio 2010\Projects\W3L 1.3 Src\W3LF_XPAM\Intcon.W3LF.Core\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MusicDemon\Documents\Visual Studio 2010\Projects\W3L 1.3 Src\W3LF_XPAM\Intcon.W3LF.Core\bin\Debug\Intcon.W3LF.Core.dll
+C:\Users\MusicDemon\Documents\Visual Studio 2010\Projects\W3L 1.3 Src\W3LF_XPAM\Intcon.W3LF.Core\bin\Debug\Intcon.W3LF.Core.pdb
+C:\Users\MusicDemon\Documents\Visual Studio 2010\Projects\W3L 1.3 Src\W3LF_XPAM\Intcon.W3LF.Core\obj\Debug\Intcon.W3LF.Core.dll
+C:\Users\MusicDemon\Documents\Visual Studio 2010\Projects\W3L 1.3 Src\W3LF_XPAM\Intcon.W3LF.Core\obj\Debug\Intcon.W3LF.Core.pdb

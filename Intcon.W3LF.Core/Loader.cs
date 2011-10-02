@@ -16,6 +16,9 @@
  *	along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+// This feature is used for the XPAM edition however, you could use it as well!
+#define XPAM
+
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +35,7 @@ namespace Intcon.W3LF
     /// <summary>
     /// The wrapper around W3L.
     /// </summary>
-    static class Loader
+    public static class Loader
     {
 
         #region API
@@ -98,7 +101,11 @@ namespace Intcon.W3LF
         /// </summary>
         /// <param name="RunGP">Determine whether or not to check data for GProxy as well.</param>
         /// <returns>True if call(s) has/have succeeded; else false.</returns>
+#if XPAM
         public static bool RunW3(bool RunGP)
+#else
+        public static bool RunW3()
+#endif
         {
             try
             {
@@ -143,7 +150,7 @@ namespace Intcon.W3LF
                 List<string> Entries = new List<string>((string[])Registry.CurrentUser.OpenSubKey("Software\\Blizzard Entertainment\\Warcraft III").GetValue("Battle.net Gateways"));
                 //int count = (Entries.Count - 2) / 3;
                 int server = 0;
-                bool HadXPAM = false;
+                bool HadServer = false;
                 for (int i = 2; i < Entries.Count; i++)
                 {
                     if (Entries[i].ToLower() == ServerData.Server)
@@ -157,7 +164,13 @@ namespace Intcon.W3LF
                             Entries.Add(ServerData.Name);
                         else
                             if (Entries[i + 2] != ServerData.Name) Entries[i + 2] = ServerData.Name;
-                        if (!RunGP) { server = i / 3; HadXPAM = true; }
+#if XPAM
+                        if (!RunGP) {
+#endif
+                        server = i / 3; HadServer = true;
+#if XPAM
+                        }
+#endif
                     }
                     if (Entries[i].ToLower() == ServerData.GP_Server)
                     {
@@ -169,14 +182,22 @@ namespace Intcon.W3LF
                             Entries.Add(ServerData.GP_Name);
                         else
                             if (Entries[i + 2] != ServerData.GP_Name) Entries[i + 2] = ServerData.GP_Name;
-                        if (RunGP) { server = i / 3; HadXPAM = true; }
+#if XPAM
+                        if (RunGP) { server = i / 3; HadServer = true; }
+#endif
                     }
                 }
-                if (!HadXPAM)
+                if (!HadServer)
+#if XPAM
                     if (RunGP)
                     { Entries.AddRange(new string[] { ServerData.GP_Name, ServerData.GP_Zone.ToString(), ServerData.GP_Server }); server = ((Entries.Count - 2) / 3); }
                     else
-                    { Entries.AddRange(new string[] { ServerData.Name, ServerData.Zone.ToString(), ServerData.Server}); server = ((Entries.Count - 2) / 3); }
+                    { 
+#endif
+                    Entries.AddRange(new string[] { ServerData.Name, ServerData.Zone.ToString(), ServerData.Server }); server = ((Entries.Count - 2) / 3);
+#if XPAM        
+            }
+#endif
                 if (!(((Entries.Count - 2) / 3) < server))
                     Entries[1] = (server.ToString().Length == 2 ? server.ToString() : "0" + server.ToString());
                 Registry.CurrentUser.OpenSubKey("Software\\Blizzard Entertainment\\Warcraft III", true).SetValue("Battle.net Gateways", Entries.ToArray(), RegistryValueKind.MultiString);

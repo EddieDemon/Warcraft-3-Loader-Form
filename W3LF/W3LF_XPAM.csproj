@@ -66,11 +66,9 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Loader.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.cs" />
     <Compile Include="UpdateManager.cs" />
     <Compile Include="WarButton.cs">
       <SubType>UserControl</SubType>
@@ -161,6 +159,12 @@
     <Content Include="w3lh.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Intcon.W3LF.Core\Intcon.W3LF.Core.csproj">
+      <Project>{0FDC102B-5747-4681-B9D1-8A9E036BF0DC}</Project>
+      <Name>Intcon.W3LF.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

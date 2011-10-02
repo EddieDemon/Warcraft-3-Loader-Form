@@ -16,6 +16,9 @@
  *	along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+// This feature is used for the XPAM edition however, you could use it as well!
+#define XPAM
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +34,7 @@ namespace Intcon.W3LF
     /// <summary>
     /// The settings class.
     /// </summary>
-    static class Settings
+    public static class Settings
     {
         #region properties
         /// <summary>
@@ -47,6 +50,7 @@ namespace Intcon.W3LF
             W3Path = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry32).OpenSubKey("Software\\Blizzard Entertainment\\Warcraft III").GetValue("InstallPath", "C:\\Progra~1\\Warcra~1").ToString();
             Logging.Log(Logging.LogLevels.Information, "Using W3Path: " + W3Path);
         }
+#if XPAM
         /// <summary>
         /// Gets whether or not the GProxy configuration file does exist.
         /// </summary>
@@ -231,6 +235,7 @@ namespace Intcon.W3LF
                 catch (Exception) { }
             }
         }
+#endif
         /// <summary>
         /// Gets or sets the current Warcraft III startup options.
         /// </summary>
