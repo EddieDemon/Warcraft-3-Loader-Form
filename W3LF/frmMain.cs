@@ -124,7 +124,7 @@ namespace Intcon.W3LF
             if (File.Exists(w3path))
                 Loader.RunW3();
             else
-                MessageBox.Show("war3.exe was nowhere to find, please retry by pressing the Start Warcraft III button.", "No war3.exe", MessageBoxButtons.OK MessageBoxIcon.Exclamation);
+                MessageBox.Show("war3.exe was nowhere to find, please retry by pressing the Start Warcraft III button.", "No war3.exe", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }
