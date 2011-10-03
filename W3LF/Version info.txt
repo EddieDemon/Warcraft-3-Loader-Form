@@ -50,3 +50,5 @@
 				Credits: therise - PvPGN forums
 2.27.18.2	- Created a library to handle the settings	- "
 				and loading.
+2.28.18.2	- Obsolete Dictionary<int, string>			- "
+				RefreshUpdates() - New update method.

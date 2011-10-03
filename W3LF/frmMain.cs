@@ -251,6 +251,7 @@ namespace Intcon.W3LF
             catch (Exception)
             {
                 MessageBox.Show("Unable to detect or create the directory \"temp\"", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    wc.Dispose();
                 return;
             }
             try
@@ -265,6 +266,7 @@ namespace Intcon.W3LF
                 btnELUpdDL.Enabled = true;
                 btnELUpdRef.Enabled = true;
                 tcMain.Enabled = true;
+                wc.Dispose();
             }
         }
         /// <summary>
@@ -329,10 +331,12 @@ namespace Intcon.W3LF
                 if (InvokeRequired)
                 {
                     System.Threading.Thread.Sleep(25);
-                    string C = new System.Net.WebClient().DownloadString("http://www.eurobattle.net/");
+                    System.Net.WebClient wc = new System.Net.WebClient();
+                    string C = wc.DownloadString("http://www.eurobattle.net/");
                     HTML = ("<html>\r\n<head>" + C.Split(new string[] { "<head>", "</head>" }, StringSplitOptions.RemoveEmptyEntries)[1] + "</head>" +
                        "<body><div id=\"vba_news4\">" + C.Split(new string[] { "<div id=\"vba_news4\">" }, StringSplitOptions.RemoveEmptyEntries)[1].Split(new string[] { "<script type=\"text/javascript\">" }, StringSplitOptions.RemoveEmptyEntries)[0] + "</body>\r\n</html>");
                     Invoke(new Action<string>(SetHTML), new object[] { HTML });
+                    wc.Dispose();
                     return;
                 }
                 wbNews.Document.Write((string)HTML);
@@ -386,6 +390,8 @@ namespace Intcon.W3LF
         // Updates the labels on the update form.
         void UpdateUpdLbl(object e)
         {
+            UpdateManager.Update();
+
             System.Threading.Thread.Sleep(25);
             Updata = UpdateManager.RefreshUpdates();
 

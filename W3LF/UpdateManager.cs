@@ -24,12 +24,19 @@ using System.Text;
 using Microsoft.Win32;
 using System.IO;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace Intcon.W3LF
 {
     /*
      * TODO: Don't allow start-up on wrong checksum
 	 * TODO: Change update system to XML
+     * 
+     * XML URL: http://dotabot.net/bots_webpages/update/update.xml 
+     * Registry.SetValue(HKEY_CURRENT_USER, "Software\\Blizzard Entertainment\\Warcraft III", "Installer_version", "5", REG_DWORD);
+     * 
+     * MD5 ( MD5 ( Location ) + MD5 ( Version ) + MD5 ( Location ) )
+     * 
      */
 
     /// <summary>
@@ -38,7 +45,8 @@ namespace Intcon.W3LF
     static class UpdateManager
     {
         // TODO: Change the path.
-        readonly static string UpdateUrl = "./update.htm";
+        //readonly static string UpdateUrl = "./update.htm";
+        readonly static string UpdateUrl = "http://dotabot.net/bots_webpages/update/";
         /* Using System.int as an Id for the product.
          *  0 = war3
          *  1 = GProxy
@@ -49,7 +57,8 @@ namespace Intcon.W3LF
         /// <summary>
         /// Gets a dictionary with application Ids and update values.
         /// </summary>
-        /// <returns>A full <see cref="SystemCollections.Generic.Dictionary&gt;TKey, TValue>"/> class.</returns>
+        /// <returns>A full <see cref="SystemCollections.Generic.Dictionary<TKey, TValue>"/> class.</returns>
+        [Obsolete()]
         public static Dictionary<int, string> RefreshUpdates()
         {
             if (!File.Exists(Settings.W3Path + "/war3.exe"))
@@ -102,6 +111,21 @@ namespace Intcon.W3LF
 
             return re;
         }
+
+        public static void Update()
+        {
+            string loc = "";
+            string ver = "";
+            using (System.Net.WebClient wc = new System.Net.WebClient())
+            {
+                System.Xml.XmlDocument xdoc = new System.Xml.XmlDocument();
+                xdoc.LoadXml(wc.DownloadString(UpdateUrl+ "update.xml"));
+                loc = GetMD5Hash(xdoc.DocumentElement["location"].InnerText);
+                ver = GetMD5Hash(xdoc.DocumentElement["version"].InnerText);
+            }
+            string hash = GetMD5Hash(loc + ver + loc); // Verify code.
+
+        }
         /// <summary>
         /// Requests a new path to war3.exe.
         /// </summary>
@@ -149,7 +173,7 @@ namespace Intcon.W3LF
                     Dict[Id] = line.Split('|')[2];
                 else
                     Dict[Id] = null;
-                Logging.Log( Logging.LogLevels.Information, "[UPDF] " + Dict[Id]);
+                Logging.Log(Logging.LogLevels.Information, "[UPDF] " + Dict[Id]);
             }
             catch (Exception)
             {
