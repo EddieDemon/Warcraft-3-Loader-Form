@@ -3,6 +3,10 @@ bin/
 obj/
 gproxy/
 
+# Others
+*.shfbproj
+*.shfbproj_MusicDemon
+
 # User options
 *.user
 *.suo
