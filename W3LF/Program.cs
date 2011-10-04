@@ -13,6 +13,10 @@ namespace Intcon.W3LF
         [STAThread]
         static void Main()
         {
+            // Initializes the variable that keeps the Warcraft III path.
+            Settings.InitPath();
+            if (Environment.CommandLine.ToLower().Contains("-launch"))
+            { Loader.RunW3(); return; }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());

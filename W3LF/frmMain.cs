@@ -105,7 +105,7 @@ namespace Intcon.W3LF
                 try // However; Do it safe, it can give an exception, so catch and handle it.
                 {
                     // Try to get the value from the registry...
-                    w3path = Registry.CurrentUser.OpenSubKey(@"Software\Blizzard Entertainment\Warcraft III").GetValue("InstallPath").ToString() + "\\war3.exe";
+                    w3path = Path.Combine(Registry.CurrentUser.OpenSubKey(@"Software\Blizzard Entertainment\Warcraft III").GetValue("InstallPath").ToString(), "war3.exe");
                 }
                 catch (Exception)
                 {
@@ -119,12 +119,12 @@ namespace Intcon.W3LF
                     if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                         w3path = ofd.FileName;
                 }
+                // Check for war3.exe once more, if it doesn't give a message and exit the method.
+                if (File.Exists(w3path))
+                    Loader.RunW3();
+                else
+                    MessageBox.Show("war3.exe was nowhere to find, please retry by pressing the Start Warcraft III button.", "No war3.exe", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            // Check for war3.exe once more, if it doesn't give a message and exit the method.
-            if (File.Exists(w3path))
-                Loader.RunW3();
-            else
-                MessageBox.Show("war3.exe was nowhere to find, please retry by pressing the Start Warcraft III button.", "No war3.exe", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

@@ -1,0 +1,60 @@
+﻿1.0.1.0		- Start										- 01-Sep-'11
+1.1.1.0		- Created the loader class					- "
+1.2.1.0		- Form background							- "
+1.3.2.0		- Startup groupbox							- 02-Sep-'11
+1.4.2.0		- Eurobattle banner							- "
+1.5.2.0		- Eurobattle icon							- "
+1.6.3.0		- Custom start button						- 05-Sep-'11
+1.7.4.0		- Webbrowser + HTML "breaker"				- 06-Sep-'11
+1.8.4.0		- Server status indicator					- "
+1.9.5.0		- Resized and added tabcontrol				- 07-Sep-'11
+				After the idea of Cen.
+2.0.6.0		- New version according to Cens plans.		- 20-Sep-'11
+2.1.7.0		- Added several tabs.						- "
+				Added GProxy settings.
+				Added GProxy with the destribution.
+2.2.8.0		- Added about tag content.					- 20-Sep-'11
+2.3.9.0		- Added update features						- "
+2.4.9.0		- Created as much as possible multi-		- "
+				threaded requests
+2.6.9.0		- A lot of minor changes. (See above)		- "
+2.7.10.0	- Continued update feature					- 21-Sep-'11
+2.9.11.0	- "											- 22-Sep-'11
+2.10.12.0	- Added command line arguments.				- "
+2.11.12.0	- Handled btnStartWGP.Click					- "
+2.13.12.1	- Revised the total code.					- 23-Sep-'11
+2.14.13.1	- Added "live" GPRoxy log					- "
+2.15.14.1	- Added new button images					- 24-Sep'11
+2.16.14.1	- Fixed a start-up problem.					- "
+2.17.14.1	- Application will check for the right		- "
+				registry entries. And will set
+				the current server to the selected
+				startup
+2.18.15.1	- Fix: Crash on no internet connection		- 25-Sep-'11
+				while loading HTTP data. (Fix: Cen)
+2.19.15.1	- Fix: Wrong GProxy working directory		- "
+				Hack: hidden a way to hide
+				GProxy.exe from the shell, (See HACK)
+2.19.15.2	- Did a full documentation on W3LF. (Xml)	- "
+2.20.15.2	- Made the API definition smaller.			- "
+2.21.16.2	- Created a logging class to print			- 28-Sep-'11
+				debug info.
+2.22.16.2	- Options will reload when the options-tab	- "
+				is selected.
+2.23.17.2	- Fix a startup issue (launch arguments)	- 29-Sep-'11
+2.24.17.2	- Changed the startup arguments of GProxy	- "
+2.25.17.2	- Added a class so developers can force		- "
+				their gateway easier. (loader.cs)
+2.26.18.2	- .gitignore allows .manifest, again		- 2-Nov-'11
+				fixed a small Xml comment typo
+				Credits: therise - PvPGN forums
+2.27.18.2	- Created a library to handle the settings	- "
+				and loading.
+2.28.18.2	- Obsolete Dictionary<int, string>			- "
+				RefreshUpdates() - New update method.
+-------------------------------------------------------------------		Version split - After 2.28.18.2 the project had a request for a default, easier to edit version. The other version became known as "XPAM Branch"
+3.29.19.2	- (Major 3: Plain version)					- 4-Nov-'11
+				Added more arguments the the first
+				MessageBox in Loader.cs.
+				Thanks still/will
+3.30.19.2	- Fixed some typos							- "

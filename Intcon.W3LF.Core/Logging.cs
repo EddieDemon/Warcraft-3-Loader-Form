@@ -61,11 +61,22 @@ namespace Intcon.W3LF
             File.AppendAllLines(LogPath, new string[] { text }, Encoding.UTF8);
 #endif
         }
-
+        /// <summary>
+        /// Different logging levels
+        /// </summary>
         public enum LogLevels : byte
         {
+            /// <summary>
+            /// Describes a warning.
+            /// </summary>
             Warning = 1,
+            /// <summary>
+            /// Describes an error.
+            /// </summary>
             Error = 2,
+            /// <summary>
+            /// Describes information.
+            /// </summary>
             Information = 4
         }
     }

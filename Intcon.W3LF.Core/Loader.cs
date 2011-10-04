@@ -112,16 +112,16 @@ namespace Intcon.W3LF
                 // Check if war3.exe and w3lh.dll exist.
                 try
                 {
-                    if (!File.Exists(Settings.W3Path + "\\war3.exe"))
+                    if (!File.Exists(Path.Combine(Settings.W3Path, "war3.exe")))
                     {
-                        MessageBox.Show("The given directory does not contain war3.exe, please make sure your registry contains the right information.\r\n\r\nPath: " + Settings.W3Path);
+                        MessageBox.Show("The given directory does not contain war3.exe, please make sure your registry contains the right information.\r\n\r\nPath: " + Settings.W3Path, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
-                    if (!File.Exists(Settings.W3Path + "\\w3lh.dll"))
+                    if (!File.Exists(Path.Combine(Settings.W3Path + "w3lh.dll")))
                     {
-                        if (File.Exists(Environment.CurrentDirectory + "\\w3lh.dll"))
+                        if (File.Exists(Path.Combine(Environment.CurrentDirectory + "w3lh.dll")))
                         {
-                            File.Copy(Environment.CurrentDirectory + "\\w3lh.dll", Settings.W3Path + "\\w3lh.dll");
+                            File.Copy(Path.Combine(Environment.CurrentDirectory + "w3lh.dll"), Path.Combine(Settings.W3Path + "w3lh.dll"));
                         }
                         else
                         {
@@ -219,7 +219,7 @@ namespace Intcon.W3LF
                  *  Windows/Warcraft III will think you're starting up -window with no arguments.
                  *  Therefore you must have at least two arguments.
                  */
-                switch (DoInject('"' + Settings.W3Path + "\\war3.exe" + '"' + Args, Settings.W3Path + "\\war3.exe", out Msg))
+                switch (DoInject('"' + Path.Combine(Settings.W3Path, "war3.exe") + '"' + Args, Path.Combine(Settings.W3Path, "war3.exe"), out Msg))
                 {
                     case 0: if (Msg != null) MessageBox.Show(Msg, "Startup message"); return true; // No error.
                     case 2: MessageBox.Show("Unable to find war3.exe in\r\n" + Msg, "Error", MessageBoxButtons.OK); return false;
