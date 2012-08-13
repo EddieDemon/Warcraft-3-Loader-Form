@@ -25,7 +25,7 @@ Since version 2.7.12.0 W3LF supports commandline arguments. Here's a list of com
 
 > -nonews		- Does not show the webbrowser at startup.
 
-For version information please see: Version info.txt (https://github.com/MusicDemon/Warcraft-3-Loader-Form/blob/dev/Version%20info.txt)
+For version information please see: Version info.txt (https://github.com/MusicDemon/Warcraft-3-Loader-Form/blob/master/W3LF/Version%20info.txt)
 
 Other than that we wish you good luck with W3LF!
 
