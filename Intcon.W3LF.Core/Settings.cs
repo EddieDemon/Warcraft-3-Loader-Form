@@ -29,7 +29,7 @@ using System.Windows.Forms;
 using System.Xml;
 using Microsoft.Win32;
 
-namespace Intcon.W3LF
+namespace CPlan.W3LF
 {
     /// <summary>
     /// The settings class.
@@ -40,10 +40,10 @@ namespace Intcon.W3LF
         /// <summary>
         /// Get the current Warcraft III directory path.
         /// </summary>
-        /// <remarks>Call <see cref="Intcon.W3LF.Settings.InitPath()"/> before calling this property.</remarks>
+        /// <remarks>Call <see cref="CPlan.W3LF.Settings.InitPath()"/> before calling this property.</remarks>
         public static string W3Path { get; private set; }
         /// <summary>
-        /// Initializes the <see cref="Intcon.W3LF.Settings.W3Path"/> property.
+        /// Initializes the <see cref="CPlan.W3LF.Settings.W3Path"/> property.
         /// </summary>
         public static void InitPath()
         {

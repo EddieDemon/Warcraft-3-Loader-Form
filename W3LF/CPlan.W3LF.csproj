@@ -8,8 +8,8 @@
     <ProjectGuid>{DB7D6AF8-CD88-43B6-94FD-B3AFC410A218}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Intcon.W3LF</RootNamespace>
-    <AssemblyName>Intcon.W3LF</AssemblyName>
+    <RootNamespace>CPlan.W3LF</RootNamespace>
+    <AssemblyName>CPlan.W3LF</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -23,7 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Intcon.W3LF.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\CPlan.W3LF.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -82,9 +82,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Intcon.W3LF.Core\Intcon.W3LF.Core.csproj">
+    <ProjectReference Include="..\Intcon.W3LF.Core\CPlan.W3LF.Core.csproj">
       <Project>{0FDC102B-5747-4681-B9D1-8A9E036BF0DC}</Project>
-      <Name>Intcon.W3LF.Core</Name>
+      <Name>CPlan.W3LF.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

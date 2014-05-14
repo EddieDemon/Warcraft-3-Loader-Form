@@ -16,7 +16,7 @@
  *	along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Intcon.W3LF
+namespace CPlan.W3LF
 {
     partial class frmMain
     {
@@ -106,7 +106,7 @@ namespace Intcon.W3LF
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(179, 104);
+            this.btnStart.Location = new System.Drawing.Point(241, 104);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(109, 23);
             this.btnStart.TabIndex = 5;
@@ -119,17 +119,17 @@ namespace Intcon.W3LF
             this.AcceptButton = this.btnStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 133);
+            this.ClientSize = new System.Drawing.Size(362, 133);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cbClassic);
             this.Controls.Add(this.cbSWTNL);
             this.Controls.Add(this.cbOpenGL);
             this.Controls.Add(this.cbWindow);
-            this.Icon = global::Intcon.W3LF.Properties.Resources.ico;
+            this.Icon = global::CPlan.W3LF.Properties.Resources.ico;
             this.MaximizeBox = false;
             this.Name = "frmMain";
-            this.Text = "Warcraft III Loader Form - Intcon";
+            this.Text = "Warcraft III Loader Form - Connection Planet";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

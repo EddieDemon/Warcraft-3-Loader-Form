@@ -21,15 +21,15 @@ using System.Windows.Forms;
 using Microsoft.Win32; // Used to use the RegistryKey class.
 using System.IO; // Used for the check if war3.exe exists.
 
-namespace Intcon.W3LF
+namespace CPlan.W3LF
 {
     /// <summary>
-    /// Main form of <see cref="Intcon.W3LF"/>.
+    /// Main form of <see cref="CPlan.W3LF"/>.
     /// </summary>
     public partial class frmMain : Form
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Intcon.W3LF.frmMain"/> class.
+        /// Initializes a new instance of the <see cref="CPlan.W3LF.frmMain"/> class.
         /// </summary>
         public frmMain()
         {

@@ -25,7 +25,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Intcon.W3LF
+namespace CPlan.W3LF
 {
     /// <summary>
     /// A simple file logger.

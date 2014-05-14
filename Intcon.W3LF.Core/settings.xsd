@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="settings"
+    targetNamespace="http://schemas.connectionplanet.nl/w3l/settings/"
+    elementFormDefault="qualified"
+    xmlns="http://schemas.connectionplanet.nl/w3l/settings/"
+    xmlns:mstns="http://schemas.connectionplanet.nl/w3l/settings/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:complexType name="settings">
+    <xs:sequence>
+      <xs:element name="w3path" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

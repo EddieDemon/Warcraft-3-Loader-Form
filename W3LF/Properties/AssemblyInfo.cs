@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("W3LF")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Intcon")]
+[assembly: AssemblyCompany("Connection Planet")]
 [assembly: AssemblyProduct("W3LF")]
-[assembly: AssemblyCopyright("Copyright ©  2011")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © Connection Planet 2011-2014")]
+[assembly: AssemblyTrademark("W3LF")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

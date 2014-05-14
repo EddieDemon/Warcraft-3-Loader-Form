@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Intcon.W3LF
+namespace CPlan.W3LF
 {
     static class Program
     {

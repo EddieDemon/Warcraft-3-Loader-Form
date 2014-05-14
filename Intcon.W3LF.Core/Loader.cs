@@ -30,7 +30,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using Microsoft.Win32;
 
-namespace Intcon.W3LF
+namespace CPlan.W3LF
 {
     /// <summary>
     /// The wrapper around W3L.
@@ -58,7 +58,7 @@ namespace Intcon.W3LF
         /// <summary>
         /// A list of Warcraft III startup options.
         /// </summary>
-        [Flags()]
+        [Flags]
         public enum StartOptions : byte
         {
             /// <summary>
@@ -83,25 +83,19 @@ namespace Intcon.W3LF
             Classic = 8
         }
         /// <summary>
-        /// This class is used for the registry check.
+        /// List for the registry check.
         /// </summary>
-        static class ServerData
-        {
-            // Direct connection.
-            public static string Server = "server.eurobattle.net";
-            public static int Zone = 8;
-            public static string Name = "Eurobattle.net";
-            // Proxied.
-            public static string GP_Server = "localhost";
-            public static int GP_Zone = 8;
-            public static string GP_Name = "Eurobattle.net GProxy";
-        }
+        private static List<Gateway> gateways = new List<Gateway>() { 
+            new Gateway(new Uri("server.eurobattle.net"), 8, "Eurobattle.Net"),
+            new Gateway(new Uri("localhost"), 8, "Eurobattle.Net GProxy")
+        };
+
         /// <summary>
         /// Attempts to start Warcraft III (and GProxy.)
-        /// </summary>
-        /// <param name="RunGP">Determine whether or not to check data for GProxy as well.</param>
+        /// </summary>        
         /// <returns>True if call(s) has/have succeeded; else false.</returns>
 #if XPAM
+        /// <param name="RunGP">Determine whether or not to check data for GProxy as well.</param>
         public static bool RunW3(bool RunGP)
 #else
         public static bool RunW3()
@@ -125,7 +119,7 @@ namespace Intcon.W3LF
                         }
                         else
                         {
-                            MessageBox.Show("w3lh.dll copy in the directory \"" + Environment.CurrentDirectory + "\\w3lh.dll\" does not exist.\r\nPlease reinstall EuroLoader.", "Error", MessageBoxButtons.OK);
+                            MessageBox.Show("w3lh.dll copy in the directory \"" + Environment.CurrentDirectory + "\\w3lh.dll\" does not exist.\r\nPlease reinstall EuroLoader.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
                         }
                     }
@@ -145,61 +139,26 @@ namespace Intcon.W3LF
                     MessageBox.Show("An unhandled exception was thrown.\r\n\r\n" + ex.Message, "Error", MessageBoxButtons.OK);
                     return false;
                 }
-
                 // Checks the registry for a server.eurobattle.net entry.
                 List<string> Entries = new List<string>((string[])Registry.CurrentUser.OpenSubKey("Software\\Blizzard Entertainment\\Warcraft III").GetValue("Battle.net Gateways"));
                 //int count = (Entries.Count - 2) / 3;
                 int server = 0;
-                bool HadServer = false;
-                for (int i = 2; i < Entries.Count; i++)
+                bool hasServer = false;
+                for (int i = 2; i < Entries.Count; i += 3)
                 {
-                    if (Entries[i].ToLower() == ServerData.Server)
+                    if (!hasServer) ++server;
+                    foreach (Gateway gw in gateways)
                     {
-
-                        if (i + 1 > Entries.Count - 1)
-                            Entries.Add(ServerData.Zone.ToString());
-                        else
-                            if (Entries[i + 1] != ServerData.GP_Zone.ToString()) Entries[i + 1] = ServerData.Zone.ToString();
-                        if (i + 2 > Entries.Count - 1)
-                            Entries.Add(ServerData.Name);
-                        else
-                            if (Entries[i + 2] != ServerData.Name) Entries[i + 2] = ServerData.Name;
-#if XPAM
-                        if (!RunGP) {
-#endif
-                        server = i / 3; HadServer = true;
-#if XPAM
+                        if (Entries[i].Equals(gw.Hostname.ToString()) || Entries[i + 2].Equals(gw.Name))
+                        {
+                            if (!Entries[i].Equals(gw.Hostname.ToString())) Entries[i + 1] = gw.Hostname.ToString();
+                            if (!Entries[i + 1].Equals(gw.TimeZone)) Entries[i + 1] = gw.TimeZone.ToString();
+                            if (!Entries[i + 2].Equals(gw.Name)) Entries[i + 1] = gw.Name;
+                            hasServer = true;
                         }
-#endif
-                    }
-                    if (Entries[i].ToLower() == ServerData.GP_Server)
-                    {
-                        if (i + 1 > Entries.Count - 1)
-                            Entries.Add(ServerData.Zone.ToString());
-                        else
-                            if (Entries[i + 1] != ServerData.Zone.ToString()) Entries[i + 1] = ServerData.Zone.ToString();
-                        if (i + 2 > Entries.Count - 1)
-                            Entries.Add(ServerData.GP_Name);
-                        else
-                            if (Entries[i + 2] != ServerData.GP_Name) Entries[i + 2] = ServerData.GP_Name;
-#if XPAM
-                        if (RunGP) { server = i / 3; HadServer = true; }
-#endif
                     }
                 }
-                if (!HadServer)
-#if XPAM
-                    if (RunGP)
-                    { Entries.AddRange(new string[] { ServerData.GP_Name, ServerData.GP_Zone.ToString(), ServerData.GP_Server }); server = ((Entries.Count - 2) / 3); }
-                    else
-                    { 
-#endif
-                    Entries.AddRange(new string[] { ServerData.Name, ServerData.Zone.ToString(), ServerData.Server }); server = ((Entries.Count - 2) / 3);
-#if XPAM        
-            }
-#endif
-                if (!(((Entries.Count - 2) / 3) < server))
-                    Entries[1] = (server.ToString().Length == 2 ? server.ToString() : "0" + server.ToString());
+                Entries[1] = (server.ToString().Length == 2 ? server.ToString() : "0" + server.ToString());
                 Registry.CurrentUser.OpenSubKey("Software\\Blizzard Entertainment\\Warcraft III", true).SetValue("Battle.net Gateways", Entries.ToArray(), RegistryValueKind.MultiString);
                 // Checks for the given arguments.
                 StartOptions StartOption = Settings.StartupOptions;
